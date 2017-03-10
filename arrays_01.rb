@@ -28,7 +28,7 @@ arr[2]     # => 3
 arr[100]   # => nil
 arr[-3]    # => 4 .....  -1 is last element, -2 2nd to last .. etc
 arr[2,3]   # => [3,4,5]  start at position 2 and take 3
-arr[1..4]  # => [2,3,4,5]  start at postion 1 and include up to 4 but not 4
+arr[1..4]  # => [2,3,4,5]  start at postion 1 and include up to and including position 4
 arr[1..-3] # => [2,3,4]  start at position 1 include through position -3, third from last
 
 arr.at(0)  # => 1
