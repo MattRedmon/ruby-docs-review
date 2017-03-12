@@ -1,4 +1,4 @@
-=begin
+
 # ***PUBLIC CLASS METHODS***
 
 
@@ -191,7 +191,7 @@ a.fill('z',2,2)  # => ['x','x','z','z']  start at position 2 and fill 2
 a.fill('y',0..1) # => ['y','y','z','z']  fill positions 0 through 1
 a.fill {|i| i*i} # => [1,2,4,9]  operating on index since using i
 
-=end
+
 # find_index method
 # appears only use index not find_index
 a = ['a','b','c','d']
@@ -301,3 +301,62 @@ a = ['a','b','c','d']
 a.pop    # => 'd'    # this is a DESTRUCTIVE method
 a.pop(2) # => ['b', 'c']
 a        # => ['a']
+
+# product method - returns array of all combos of elements of arrays
+[1,2,3].product([4,5])      # => [[1,4],[1,5],[2,4],[2,5],[3,4],[3,5]]
+[1,2].product([1,2])        # => [[1,1],[1,2],[2,1],[2,2]]
+[1,2].product([3,4],[5,6])  # => [[1,3,5],[1,3,6],[1,4,5],[1,4,6],
+                            #    [2,3,5],[2,3,6],[2,4,5],[2,4,6]]
+[1,2].product()             # => [[1],[2]]
+[1,2].product([])           # => []
+
+# push method - append to end of array
+a = ['a','b','c']
+a.push('d','e','f')      # => a = ['a','b','c','d','e','f']
+[1,2,3].push(4).push(5)  # => [1,2,3,4,5]
+
+# rassoc method - searches through array whose elements are also arrays
+a = [ [ 1, "one"], [2, "two"], [3, "three"], ["ii", "two"] ]
+a.rassco("two")  # => [2,"two"]
+a.rassco("four") # => nil
+
+# reject method -- see also delete_if method
+# deletes every element of self for which the block evaluates true
+
+# repeated_combination method
+# when invoked with a block yields all repeated combos of lenght n of elements from the array
+# no guarantees of order
+a = [1,2,3]
+a.repeated_combination(1).to_a  # => [[1],[2],[3]]
+a.repeated_combination(2).to_a  # => [[1,1],[1,2],[1,3],[2,2],[2,3],[3,3]]
+a.repeated_combination(3).to_a  # => [[1,1,1],[1,1,2],[1,1,3],[1,2,2],[1,2,3],
+                                #    [1,3,3],[2,2,2],[2,2,3],[2,3,3],[3,3,3]]
+
+# repeated_permutation method
+# when invoked with a block, yield all repeated permutations of length n of elements of array
+# no guarantees of order
+a = [1,2]
+a.repeated_permutation(1).to_a  # => [[1], [2]]
+a.repeated_permutation(2).to_a  # => [[1,1],[1,2],[2,1],[2,2]]
+a.repeated_permutation(3).to_a  # => [[1,1,1],[1,1,2],[1,2,1],[1,2,2],
+                                #    [2,1,1],[2,1,2],[2,2,1],[2,2,2]]
+
+# replace method - this is a DESTRUCTIVE method
+# replaces contents of self with contents of other array
+a = ['a','b','c','d']
+a.replace([ 'x', 'y', 'x' ])  # => [ 'x', 'y', 'x' ]
+a                             # => [ 'x', 'y', 'x' ]
+
+# reverse method - reverse array - Non Destructive version
+['a','b','c'].reverse  # => ['c','b','a']
+a                      # => ['a','b','c']
+
+# reverse! method - DESTRUCTIVE VERSION
+a = ['a','b','c']
+a.reverse!  # => ['c','b','a']
+a           # => ['c','b','a']
+
+# reverse_each method
+# same as each but traverses self in reverse order
+a = ['a','b','c']
+a.reverse_each { |x| print x, " " }  # prints: c b a
