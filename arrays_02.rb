@@ -360,3 +360,79 @@ a           # => ['c','b','a']
 # same as each but traverses self in reverse order
 a = ['a','b','c']
 a.reverse_each { |x| print x, " " }  # prints: c b a
+
+# rindex method
+# returns index of last object in self
+a = ['a','b','b','b','c']
+a.rindex('b')   # => 3
+a.rindex('z')   # => nil
+a.rindex { |x| x == 'b' }   # => 3
+
+# rotate(count=1) method
+# returns new array by rotating self so that the element a count is first element of new array
+a = ['a','b','c','d']
+a.rotate     # =>  ['b','c', d','a']   1 is default if no param provided
+a.rotate(2)  # =>  ['c','d','a','b']
+a.rotate(-3) # =>  ['b','c','d','a']
+# if count is negative the it rotates in the opposite direction, starting from the end
+# of self where -1 is the last element
+
+# rotate!(count=1) -- DESTRUCTIVE VERSION of above
+
+# sample method
+# choose a random element or n random elements from an array
+a = [1,2,3,4,5,6,7,8,9,10]
+a.sample     # result is random # from the given array
+a.sample(4)  # result is 4 random #s from the given array
+
+# select method
+# returns new array containing all elements of ary for which the given block returns a true value
+[1,2,3,4,5].select { |num| n.even? }   # => [2,4]
+a = %w{ a b c d e f }
+a.select { |v| v=~ /[aeiou]/ }  # => ['a', 'e']
+
+# select! method - destructive version of above
+
+# shift method
+# removes the first element of self and returns it
+# shifting all other elements down by one
+args = ["m", "q", "filename"]
+args.shift     # => "m"
+args           # => ["q", "filename"]
+
+args = ["m", "q", "filename"]
+args.shift(2)  # => ["m", "q"]
+args           # => ["filename"]
+
+# shuffle method
+# returns new array with elements in self shuffled
+a = [1,2,3]
+a.shuffle   # => [2,3,1] -- this is only an example of possible answer as array is randomly shuffled
+a           # => [1,2,3]  -- this is non destructive method
+
+# shuffle! method -- DESTRUCTIVE version of above
+
+# size method -- alias for length method
+
+# slice method
+# returns the element at index or returns subarray starting a the start index
+# and continuing for length elements
+a = ['a', 'b', 'c', 'd', 'e']
+a[2] + a[0] + a[1]    # => "cab"
+a[6]                  # => nil
+a[1,2]                # => ['b', 'c']     start at index 1 and take 2
+a[1..3]               # => ['b', 'c','d']
+a[4..7]               # => ['e']
+a[6..10]              # => nil
+a[-3, 3]              # => ['c', 'd', 'e']    start at index -3 and take 3
+
+# slice! method -- DESTRUCTIVE VERSION of above
+
+# sort method
+# returns new array created by sorting self
+# comparison done using <=> operator or by using optional code block
+a = ['d','a','e','c','b']
+a.sort                      # ['a', 'b', 'c', 'd', 'e']
+a.sort { |x,y| y <=> x }    # ['e', 'd', 'c', 'b', 'a']
+
+# sort! method - DESTRUCTIVE version of above
