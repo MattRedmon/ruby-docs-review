@@ -116,6 +116,78 @@
 12345.digits(7)    # => [4,6,6,0,5]
 12345.digits(100)  # => [45,23,1]
 
+# div
+# div(numeric) -> integer
+# performs integer division: returns int result by diving int by numeric
+
+# divmod(numeric) -> array
+# see Numeric divmod
+
+# downto
+# downto(limit)
+# iterates the given block, passing decreasing values from int down to and including limit
+5.downto(1) { |n| print n, ".. " }    # => "5.. 4.. 3.. 2.. 1.."
+
+# even?
+# returns true if int is an even number
+
+# fdiv
+# fdiv(numeric) -> float
+# returns floating point result of dividing fix by numeric
+654321.fdiv(13731)   # => 47.6528293642124
+
+# floor
+# floor([ndigit]) -> integer or float
+# returns largest number less than or equal to int in decimal digits
+# returns floating point num whe ndigits is positive, self for zero, and floor down for negative
+1.floor       # => 1
+1.floor(2)    # => 1.0
+15.floor(-1)  # => 10
+
+# gcdlcm   (?? greatest common demonimator, least common multiple ??)
+# gcdlcm(int2) -> array
+# returns an array
+2.gcdlcm(2)      # => [2,2]
+3.gcdlcm(-7)     # => [1,21]
+
+# integer?
+# since int is always an integer, this always returns true
+
+# lcm
+# returns the least common multiple, always positive
+2.lcm(2)     # => 2
+3.lcm(-7)    # => 21
+
+# magnitude
+# returns the absolute value of int
+# see abs
+
+# modulo(other) -> real
+# returns int modulo other
+# see Numeric divmod
+
+# next
+# returns the Integer equal to int + 1
+1.next    # => 2
+(-1).next # => 0
+1.succ    # => 2
+(-1).succ # => 0
+
+# odd
+# returns true if int is an odd number
+
+# ord
+# returns the int itself
+?a.ord  # => 97
+
+# pred
+# returns the Integer equal to int - 1
+1.pred    # => 0
+(-1).pred # => -2
+
+
+
+
 
 
 
