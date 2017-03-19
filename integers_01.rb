@@ -185,6 +185,18 @@
 1.pred    # => 0
 (-1).pred # => -2
 
+# rationalize
+# returns the value as a rational
+
+# remainder
+# remainder(numberic) -> real
+# returns the remainder after dividing big by numeric
+x.remainder(y)  # => mean x-y* (x/y).truncate
+5.remainder(3)  # => 2
+-5.remainder(3) # => -2
+
+
+
 
 
 
