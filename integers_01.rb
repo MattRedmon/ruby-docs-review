@@ -195,9 +195,78 @@ x.remainder(y)  # => mean x-y* (x/y).truncate
 5.remainder(3)  # => 2
 -5.remainder(3) # => -2
 
+# round
+# round([ndigits]) -> integer or float
+# rounds int to a given precision in decimal digits, default 0 digits
+1.round       # => 1
+1.round(2)    # => 1.0
+15.round(-1)  # => 20
 
+# size
+# size -> int
+# returns the number of bytes in the machine representation of fix
+1.size              # => 4
+-1.size             # => 4
+2147483647.size     # => 4
+(256**10 - 1).size  # => 12
+(256**20 - 1).size  # => 20
+(256**40 - 1).size  # => 40
 
+# succ
+# succ -> integer
+# returns the Integer equal to int + 1
+1.next      # => 2
+(-1).next   # => 0
+1.succ      # => 2
+(-1).succ   # => 0
 
+# times
+# times { |i| block }
+# iterates the given block int times, passing in values from zero to int -1
+5.times do |i|
+  pring i, " "
+end
+# => 0 1 2 3 4
+
+# to_f
+# converts int to a Float, if int doesn't fit in Float, result is infinity
+
+# to_i
+# as int is already an Integer,these methods simply return the receiver
+# see all to_int
+
+# to_r
+# returns value as a rational
+1.to_r         # => (1/1)
+(1<<64).to_r   # => (18446744073709551616/1)
+
+# to_s
+# returns a string containing the representation of int radix base ( 2 to 36 )
+12345.to_s        # => "12345"
+12345.to_s(2)     # => "11000000111001"
+12345.to_s(8)     # => "30071"
+12345.to_s(10)    # => "12345"
+12345.to_s(16)    # => "3039"
+12345.to_s(36)    # => "9ix"
+
+# truncate
+# truncate([ndigits]) -> int or float
+# returns the smallest number than or equal to int in dec digits, default is zero
+1.truncate      # => 1
+1.truncate(2)   # => 1.0
+15.truncate(-1) # => 10
+
+# upto
+# upto(limit) { |i| block }
+# iterates given block, passing in integer values from int up to and including limit
+5.upto(10) { |i| print i, " " }
+# => 5 6 7 8 9 10
+
+# integer | integer
+# bitwise OR
+
+# ~integer
+# One's complement: returns a number where each bit is flipped
 
 
 
